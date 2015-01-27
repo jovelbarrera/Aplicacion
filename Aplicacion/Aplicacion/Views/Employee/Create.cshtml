@@ -1,0 +1,104 @@
+﻿@model Aplicacion.Models.Employee
+
+@{
+    ViewBag.Title = ".::Nuevo Empleado - Aplicación::.";
+    ViewBag.menu = "#menu_empleados";
+}
+
+<h2>Nuevo Empleado</h2>
+<div class="well">
+    @using (Html.BeginForm("Create", "employee", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Agregar Empleado</legend>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.nombre)<span class="text-danger">*</span>
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.nombre)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.nombre)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.apellido)<span class="text-danger">*</span>
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.apellido)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.apellido)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.direccion)
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.direccion)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.direccion)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.telefono)<span class="text-danger">*</span>
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.telefono)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.telefono)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.estado)
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.estado)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.estado)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.f_ingreso)<span class="text-danger">*</span>
+                </div>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.f_ingreso)
+                    <span class="text-danger">
+                        @Html.ValidationMessageFor(model => model.f_ingreso)
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-2 control-label">
+                    @Html.LabelFor(model => model.OfficeID, "Oficina")<span class="text-danger">*</span>
+                </div>
+                <div class="col-lg-10">
+
+                    @Html.DropDownList("OfficeID", String.Empty)
+                    @Html.ValidationMessageFor(model => model.OfficeID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <a href="@Url.Action("Index", "employee")" class="btn btn-default"><i class="fa fa-times"></i>&nbsp;Cancelar</a>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Agregar</button>
+                </div>
+            </div>
+        </fieldset>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,21 @@
+Aplicación
+Esta aplicación se desarrolló haciendo uso de ASP.NET MVC 4 en lenguaje C#
+El código fuente puede ser encontrado en el repositorio Aplicacion de mi github, junto con los códigos T-SQL de la base de datos.
+https://github.com/rejbarrera/Aplicacion
+El esquema de bases de datos y sus entidades se crearon con Entity Framework a partir de los Modelos.
+
+También se utilizaron las siguientes herramientas:
+
+* Bootstrap - para los estilos de front-end
+* JQuery - Para realizar las validaciones de entradas de datos y otras
+
+Consideraciones de la aplicación:
+* Se consideró integridad referencial para que al momento de eliminar una oficina, no existieran referencias huérfanas en la tabla de empleados.
+* Se utilizó SQL Server en una LocalDB, la Base de datos es parte de la aplicación. Esto permite la portabilidad de la Aplicación sin necesidad de configurar una Base de Datos Externa.
+
+*******************************
+INSTRUCCIONES
+Solamente es necesario Abrir el proyecto en el Visual Studio 2012 (de preferencia) y correrlo. La base de datos es parte de la aplicación por lo que no es necesario crearla
+ni tampoco es necesaria su configuración en la aplicación.
+*******************************
+Desarrollado por: Roberto Ernesto Jovel Barrera - rej.barrera@gmail.com

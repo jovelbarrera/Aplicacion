@@ -1,0 +1,30 @@
+CREATE DATABASE aplicacion;
+GO
+CREATE TABLE [dbo].[Offices] (
+    [OfficeID]    INT            IDENTITY (1, 1) NOT NULL,
+    [nombre]      NVARCHAR (50)  NOT NULL,
+    [telefono]    NVARCHAR (8)   NOT NULL,
+    [direccion]   NVARCHAR (100) NOT NULL,
+    [descripcion] NVARCHAR (100) NULL,
+    CONSTRAINT [PK_dbo.Offices] PRIMARY KEY CLUSTERED ([OfficeID] ASC)
+);
+GO
+
+CREATE TABLE [dbo].[Employees] (
+    [EmployeeID] INT            IDENTITY (1, 1) NOT NULL,
+    [nombre]     NVARCHAR (50)  NOT NULL,
+    [apellido]   NVARCHAR (50)  NOT NULL,
+    [direccion]  NVARCHAR (100) NULL,
+    [telefono]   NVARCHAR (8)   NOT NULL,
+    [estado]     BIT            NOT NULL,
+    [f_ingreso]  DATETIME       NOT NULL,
+    [OfficeID]   INT            NOT NULL,
+    CONSTRAINT [PK_dbo.Employees] PRIMARY KEY CLUSTERED ([EmployeeID] ASC),
+    CONSTRAINT [FK_dbo.Employees_dbo.Offices_OfficeID] FOREIGN KEY ([OfficeID]) REFERENCES [dbo].[Offices] ([OfficeID]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_OfficeID]
+    ON [dbo].[Employees]([OfficeID] ASC);
+

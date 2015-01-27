@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Aplicacion.Models.Office>
+
+@{
+    ViewBag.Title = ".::Oficinas - Aplicación::.";
+    ViewBag.menu = "#menu_oficinas";
+}
+
+<h2>Oficinas</h2>
+
+
+<p>
+    <a href="@Url.Action("Create", "office")" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>&nbsp;Agregar oficina</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "office", new { id = item.OfficeID })" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href="@Url.Action("Details", "office", new { id = item.OfficeID })" class="btn btn-default btn-xs"><i class="fa fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "office", new { id = item.OfficeID })" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

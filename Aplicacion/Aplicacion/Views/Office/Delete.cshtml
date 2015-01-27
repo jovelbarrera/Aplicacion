@@ -1,0 +1,31 @@
+﻿@model Aplicacion.Models.Office
+
+@{
+    ViewBag.Title = ".::Eliminar Oficina - Aplicación::.";
+    ViewBag.menu = "#menu_oficinas";
+}
+<h2>Eliminar</h2>
+
+<h3>¿Est&aacute; seguro de eliminar este registro?</h3>
+<p>Esta acci&oacute;n no se puede deshacer. Los empleados relacionados a esta oficina se eliminarán.</p>
+
+<div class="well row">
+    <strong>@Html.DisplayNameFor(model => model.nombre)</strong>
+    @Html.DisplayFor(model => model.nombre)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.telefono)</strong>
+    @Html.DisplayFor(model => model.telefono)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.direccion)</strong>
+    @Html.DisplayFor(model => model.direccion)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.descripcion)</strong>
+    @Html.DisplayFor(model => model.descripcion)
+</div>
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger"><i class="fa fa-times"></i>&nbsp;Eliminar</button>
+        <a href="@Url.Action("Index", "office")" class="btn btn-default">&nbsp;Cancelar</a>
+    </p>
+}

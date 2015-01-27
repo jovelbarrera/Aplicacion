@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Aplicacion.Models.Employee>
+
+@{
+    ViewBag.Title = ".::Empleados - Aplicación::.";
+    ViewBag.menu = "#menu_empleados";
+}
+
+<h2>Empleados</h2>
+
+<p>
+    <a href="@Url.Action("Create", "employee")" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>&nbsp;Agregar empleado</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.f_ingreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Office.nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f_ingreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Office.nombre)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "employee", new { id = item.EmployeeID })" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a href="@Url.Action("Details", "employee", new { id = item.EmployeeID })" class="btn btn-default btn-xs"><i class="fa fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "employee", new { id = item.EmployeeID })" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,24 @@
+﻿@model Aplicacion.Models.Office
+
+@{
+    ViewBag.Title = ".::Destalles Oficina - Aplicación::.";
+    ViewBag.menu = "#menu_oficinas";
+}
+<h2>Detalles</h2>
+<div class="well row">
+    <strong>@Html.DisplayNameFor(model => model.nombre)</strong>
+    @Html.DisplayFor(model => model.nombre)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.telefono)</strong>
+    @Html.DisplayFor(model => model.telefono)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.direccion)</strong>
+    @Html.DisplayFor(model => model.direccion)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.descripcion)</strong>
+    @Html.DisplayFor(model => model.descripcion)
+</div>
+<p>
+    <a href="@Url.Action("Edit", "office", new { id = Model.OfficeID })" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+    <a href="@Url.Action("Index", "office")" class="btn btn-default"><i class="fa fa-undo"></i>&nbsp;Regresar</a>
+</p>

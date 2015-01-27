@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Aplicaci&oacute;n</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-inverse-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="menu_oficinas"><a href="/office">Oficinas</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li id="menu_empleados"><a href="/employee">Empleados</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">C&oacute;digo fuente <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://github.com/rejbarrera/Aplicacion.git" target="_blank"><i class="fa fa-github"></i>&nbsp;github rejbarrera</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-12">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $("@ViewBag.menu").addClass("active");
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model Aplicacion.Models.Employee
+
+@{
+    ViewBag.Title = ".::Eliminar Empleado - Aplicación::.";
+    ViewBag.menu = "#menu_empleados";
+}
+<h2>Eliminar</h2>
+
+<h3>¿Est&aacute; seguro de eliminar este registro?</h3>
+<p>Esta acci&oacute;n no se puede deshacer.</p>
+
+
+
+<div class="well row">
+    <strong>@Html.DisplayNameFor(model => model.nombre)</strong>
+    @Html.DisplayFor(model => model.nombre)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.apellido)</strong>
+    @Html.DisplayFor(model => model.apellido)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.direccion)</strong>
+    @Html.DisplayFor(model => model.direccion)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.telefono)</strong>
+    @Html.DisplayFor(model => model.telefono)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.estado)</strong>
+    @Html.DisplayFor(model => model.estado)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.f_ingreso)</strong>
+    @Html.DisplayFor(model => model.f_ingreso)
+    <br />
+    <strong>@Html.DisplayNameFor(model => model.Office.nombre)</strong>
+    @Html.DisplayFor(model => model.Office.nombre)
+</div>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger"><i class="fa fa-times"></i>&nbsp;Eliminar</button>
+        <a href="@Url.Action("Index", "employee")" class="btn btn-default">&nbsp;Cancelar</a>
+    </p>
+}
